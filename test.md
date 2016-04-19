@@ -17,6 +17,9 @@ Test of TOC
 
 [TOC]
 
+The above works only on StackEdit, on GitHub it does not work
+so TOC have to be build manually.
+
 Header level 1
 ==============
 
@@ -99,9 +102,13 @@ Test of Table of images
 **Table of images**
 
 [Image 1: Picture 1](#image1)
+
 [Image 2: Picture 2](#image2)
+
 [Image 3: Picture 3](#image3)
+
 [Image 4: Picture 4](#image4)
+
 [Image 5: Picture 5](#image5)
 
 In the middle there is some short text. I do not have
@@ -112,16 +119,16 @@ idea what to write here but there have to be some text.
 In the middle there is some short text. I do not have
 idea what to write here but there have to be some text.
 
-<a name="image1">
-![Image 1: Picture 1](media/image1.png)
+<a name="image1">![Image 1: Picture 1](media/image1.png)
+
 Image 1: Picture 1
 
 
 In the middle there is some short text. I do not have
 idea what to write here but there have to be some text.
 
-<a name="image2">
-![Image 2: Picture 2](media/image2.png)
+<a name="image2">![Image 2: Picture 2](media/image2.png)
+
 Image 2: Picture 2
 
 In the middle there is some short text. I do not have
@@ -130,22 +137,23 @@ idea what to write here but there have to be some text.
 
 <a name="image3">
 ![Image 3: Picture 3](media/image3.png)
+
 Image 3: Picture 3
 
 In the middle there is some short text. I do not have
 idea what to write here but there have to be some text.
 
 
-<a name="image4">
-![Image 4: Picture 4](media/image4.png)
+<a name="image4">![Image 4: Picture 4](media/image4.png)
+
 Image 4: Picture 4
 
 In the middle there is some short text. I do not have
 idea what to write here but there have to be some text.
 
 
-<a name="image5">
-![Image 5: Picture 5](media/image5.png)
+<a name="image5">![Image 5: Picture 5](media/image5.png)
+
 Image 5: Picture 5
 
 
@@ -157,3 +165,21 @@ idea what to write here but there have to be some text.
 Test of Table of images
 
 
+Test some rulers
+
+Dashes
+
+----------
+
+
+Asterisks
+
+**********
+
+
+Dashes with spaces
+
+- - - - - - -
+
+
+Test some rulers
