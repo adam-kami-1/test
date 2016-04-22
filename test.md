@@ -53,14 +53,15 @@ so TOC have to be build manually, like below.
 * [Header level 1 Eeeeeeeeeeeeeeeeeeee](#TOC_5)
 
 
-<a id="TOC_1">Header level 1 Aaaaaaaaaaaaaaaaaaaaaa
+<a id="TOC_1">
+Header level 1 Aaaaaaaaaaaaaaaaaaaaaa
 ================================================================================
 
 Some text in this chapter. Even more sentences are required. and some extra
 text.
 
-<a id="TOC_1_1">Header level 2 AAAaaaaaaaaa
---------------------------------------------------------------------------------
+<a id="TOC_1_1">
+## Header level 2 AAAaaaaaaaaa
 
 Some text in this chapter. Even more sentences are required. and some extra
 text.
@@ -72,25 +73,25 @@ Some text in this chapter. Even more sentences are required. and some extra
 text.
 
 <a id="TOC_1_1_2">
- ### Header level 3 AAAaaa 222222222
+### Header level 3 AAAaaa 222222222
 
 Some text in this chapter. Even more sentences are required. and some extra
 text.
 
 <a id="TOC_1_1_3">
-  ### Header level 3 AAAaaa 33333333
+### Header level 3 AAAaaa 33333333
 
 Some text in this chapter. Even more sentences are required. and some extra
 text.
 
 <a id="TOC_1_1_4">
-   ### Header level 3 AAAaaa 44444444
+### Header level 3 AAAaaa 44444444
 
 Some text in this chapter. Even more sentences are required. and some extra
 text.
 
-<a id="TOC_1_2">Header level 2 AAAbbbbbbbb
---------------------------------------------------------------------------------
+<a id="TOC_1_2">
+## Header level 2 AAAbbbbbbbb
 
 Some text in this chapter. Even more sentences are required. and some extra
 text.
@@ -107,8 +108,8 @@ text.
 Some text in this chapter. Even more sentences are required. and some extra
 text.
 
-<a id="TOC_1_3">Header level 2 AAAcccccccc
---------------------------------------------------------------------------------
+<a id="TOC_1_3">
+## Header level 2 AAAcccccccc
 
 Some text in this chapter. Even more sentences are required. and some extra
 text.
