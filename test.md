@@ -21,6 +21,8 @@ Test of TOC
 The above works only on StackEdit, on GitHub it does not work
 so TOC have to be build manually, like below.
 
+**Table of contens**
+
 * [Header level 1 Aaaaaaaaaaaaaaaaaaaaaa](#TOC_1)
   * [Header level 2 AAAaaaaaaaaa](#TOC_1_1)
     * [Header level 3 AAAaaa 111111111](#TOC_1_1_1)
@@ -53,33 +55,32 @@ so TOC have to be build manually, like below.
 * [Header level 1 Eeeeeeeeeeeeeeeeeeee](#TOC_5)
 
 
-<a id="TOC_1">
-Header level 1 Aaaaaaaaaaaaaaaaaaaaaa
+<a id="TOC_1">Header level 1 Aaaaaaaaaaaaaaaaaaaaaa
 ================================================================================
 
 Some text in this chapter. Even more sentences are required. and some extra
 text.
 
-<a id="TOC_1_1">
-## Header level 2 AAAaaaaaaaaa
+<a id="TOC_1_1">Header level 2 AAAaaaaaaaaa
+--------------------------------------------------------------------------------
 
 Some text in this chapter. Even more sentences are required. and some extra
 text.
 
 <a id="TOC_1_1_1">
-### Header level 3 AAAaaa 111111111
+###    Header level 3 AAAaaa 111111111
 
 Some text in this chapter. Even more sentences are required. and some extra
 text.
 
 <a id="TOC_1_1_2">
-### Header level 3 AAAaaa 222222222
+###	Header level 3 AAAaaa 222222222
 
 Some text in this chapter. Even more sentences are required. and some extra
 text.
 
 <a id="TOC_1_1_3">
-### Header level 3 AAAaaa 33333333
+###			Header level 3 AAAaaa 33333333
 
 Some text in this chapter. Even more sentences are required. and some extra
 text.
@@ -90,8 +91,8 @@ text.
 Some text in this chapter. Even more sentences are required. and some extra
 text.
 
-<a id="TOC_1_2">
-## Header level 2 AAAbbbbbbbb
+<a id="TOC_1_2">Header level 2 AAAbbbbbbbb
+--------------------------------------------------------------------------------
 
 Some text in this chapter. Even more sentences are required. and some extra
 text.
@@ -108,8 +109,8 @@ text.
 Some text in this chapter. Even more sentences are required. and some extra
 text.
 
-<a id="TOC_1_3">
-## Header level 2 AAAcccccccc
+<a id="TOC_1_3">Header level 2 AAAcccccccc
+--------------------------------------------------------------------------------
 
 Some text in this chapter. Even more sentences are required. and some extra
 text.
