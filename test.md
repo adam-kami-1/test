@@ -23,6 +23,7 @@ so TOC have to be build manually, like below.
 
 **Table of contens**
 
+:TOC:
 * [Header level 1 Aaaaaaaaaaaaaaaaaaaaaa](#TOC_1)
   * [Header level 2 AAAaaaaaaaaa](#TOC_1_1)
     * [Header level 3 AAAaaa 111111111](#TOC_1_1_1)
@@ -53,183 +54,183 @@ so TOC have to be build manually, like below.
   * [Header level 2 DDDaaaaaaaaa](#TOC_4_1)
     * [Header level 3 DDDaaa 1111111111](#TOC_4_1_1)
 * [Header level 1 Eeeeeeeeeeeeeeeeeeee](#TOC_5)
+:TOC:
 
-
-<a id="TOC_1">Header level 1 Aaaaaaaaaaaaaaaaaaaaaa
+<a id="TOC_1" />Header level 1 Aaaaaaaaaaaaaaaaaaaaaa
 ================================================================================
 
 Some text in this chapter. Even more sentences are required. and some extra
 text.
 
-<a id="TOC_1_1">Header level 2 AAAaaaaaaaaa
+<a id="TOC_1_1" />Header level 2 AAAaaaaaaaaa
 --------------------------------------------------------------------------------
 
 Some text in this chapter. Even more sentences are required. and some extra
 text.
 
-<a id="TOC_1_1_1">
+<a id="TOC_1_1_1" />
 ###    Header level 3 AAAaaa 111111111
 
 Some text in this chapter. Even more sentences are required. and some extra
 text.
 
-<a id="TOC_1_1_2">
+<a id="TOC_1_1_2" />
 ###	Header level 3 AAAaaa 222222222
 
 Some text in this chapter. Even more sentences are required. and some extra
 text.
 
-<a id="TOC_1_1_3">
+<a id="TOC_1_1_3" />
 ###			Header level 3 AAAaaa 33333333
 
 Some text in this chapter. Even more sentences are required. and some extra
 text.
 
-<a id="TOC_1_1_4">
+<a id="TOC_1_1_4" />
 ### Header level 3 AAAaaa 44444444
 
 Some text in this chapter. Even more sentences are required. and some extra
 text.
 
-<a id="TOC_1_2">Header level 2 AAAbbbbbbbb
+<a id="TOC_1_2" />Header level 2 AAAbbbbbbbb
 --------------------------------------------------------------------------------
 
 Some text in this chapter. Even more sentences are required. and some extra
 text.
 
-<a id="TOC_1_2_1">
+<a id="TOC_1_2_1" />
 ### Header level 3 AAAbbb 11111111
 
 Some text in this chapter. Even more sentences are required. and some extra
 text.
 
-<a id="TOC_1_2_2">
+<a id="TOC_1_2_2" />
 ### Header level 3 AAAbbb 22222222
 
 Some text in this chapter. Even more sentences are required. and some extra
 text.
 
-<a id="TOC_1_3">Header level 2 AAAcccccccc
+<a id="TOC_1_3" />Header level 2 AAAcccccccc
 --------------------------------------------------------------------------------
 
 Some text in this chapter. Even more sentences are required. and some extra
 text.
 
-<a id="TOC_1_3_1">
+<a id="TOC_1_3_1" />
 ### Header level 3 AAAccc 111111111
 
 Some text in this chapter. Even more sentences are required. and some extra
 text.
 
-<a id="TOC_2">Header level 1 Bbbbbbbbbbbbbbbbbbbbbb
+<a id="TOC_2" />Header level 1 Bbbbbbbbbbbbbbbbbbbbbb
 ================================================================================
 
 Some text in this chapter. Even more sentences are required. and some extra
 text.
 
-<a id="TOC_2_1">Header level 2 BBBaaaaaaaaa
+<a id="TOC_2_1" />Header level 2 BBBaaaaaaaaa
 --------------------------------------------------------------------------------
 
 Some text in this chapter. Even more sentences are required. and some extra
 text.
 
-<a id="TOC_2_1_1">
+<a id="TOC_2_1_1" />
 ### Header level 3 BBBaaa 1111111111
 
 Some text in this chapter. Even more sentences are required. and some extra
 text.
 
-<a id="TOC_2_2">Header level 2 BBBbbbbbbbbb
+<a id="TOC_2_2" />Header level 2 BBBbbbbbbbbb
 --------------------------------------------------------------------------------
 
 Some text in this chapter. Even more sentences are required. and some extra
 text.
 
-<a id="TOC_2_2_1">
+<a id="TOC_2_2_1" />
 ### Header level 3 BBBbbb 11111111111
 
 Some text in this chapter. Even more sentences are required. and some extra
 text.
 
-<a id="TOC_2_2_2">
+<a id="TOC_2_2_2" />
 ### Header level 3 BBBbbb 22222222222
 
 Some text in this chapter. Even more sentences are required. and some extra
 text.
 
-<a id="TOC_2_3">Header level 2 BBBcccccccccc
+<a id="TOC_2_3" />Header level 2 BBBcccccccccc
 --------------------------------------------------------------------------------
 
 Some text in this chapter. Even more sentences are required. and some extra
 text.
 
-<a id="TOC_2_3_1">
+<a id="TOC_2_3_1" />
 ### Header level 3 BBBccc 11111111111
 
 Some text in this chapter. Even more sentences are required. and some extra
 text.
 
-<a id="TOC_2_3_2">
+<a id="TOC_2_3_2" />
 ### Header level 3 BBBccc 22222222222
 
 Some text in this chapter. Even more sentences are required. and some extra
 text.
 
-<a id="TOC_2_3_3">
+<a id="TOC_2_3_3" />
 ### Header level 3 BBBccc 33333333333
 
 Some text in this chapter. Even more sentences are required. and some extra
 text.
 
-<a id="TOC_3">Header level 1 Ccccccccccccccccccccc
+<a id="TOC_3" />Header level 1 Ccccccccccccccccccccc
 ================================================================================
 
 Some text in this chapter. Even more sentences are required. and some extra
 text.
 
-<a id="TOC_3_1">Header level 2 CCCaaaaaaaaa
+<a id="TOC_3_1" />Header level 2 CCCaaaaaaaaa
 --------------------------------------------------------------------------------
 
 Some text in this chapter. Even more sentences are required. and some extra
 text.
 
-<a id="TOC_3_1_1">
+<a id="TOC_3_1_1" />
 ### Header level 3 CCCaaa 1111111111
 
 Some text in this chapter. Even more sentences are required. and some extra
 text.
 
-<a id="TOC_3_2">Header level 2 CCCbbbbbbbbb
+<a id="TOC_3_2" />Header level 2 CCCbbbbbbbbb
 --------------------------------------------------------------------------------
 
 Some text in this chapter. Even more sentences are required. and some extra
 text.
 
-<a id="TOC_3_2_1">
+<a id="TOC_3_2_1" />
 ### Header level 3 CCCbbb 1111111111
 
 Some text in this chapter. Even more sentences are required. and some extra
 text.
 
-<a id="TOC_4">Header level 1 Ddddddddddddddddddddd
+<a id="TOC_4" />Header level 1 Ddddddddddddddddddddd
 ================================================================================
 
 Some text in this chapter. Even more sentences are required. and some extra
 text.
 
-<a id="TOC_4_1">Header level 2 DDDaaaaaaaaa
+<a id="TOC_4_1" />Header level 2 DDDaaaaaaaaa
 --------------------------------------------------------------------------------
 
 Some text in this chapter. Even more sentences are required. and some extra
 text.
 
-<a id="TOC_4_1_1">
+<a id="TOC_4_1_1" />
 ### Header level 3 DDDaaa 1111111111
 
 Some text in this chapter. Even more sentences are required. and some extra
 text.
 
-<a id="TOC_5">Header level 1 Eeeeeeeeeeeeeeeeeeee
+<a id="TOC_5" />Header level 1 Eeeeeeeeeeeeeeeeeeee
 ================================================================================
 
 Some text in this chapter. Even more sentences are required. and some extra
