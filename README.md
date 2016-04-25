@@ -33,20 +33,38 @@ Each paragraph is separated with at least one empty line from other paragraphs.
 
 ### Bold, italic, and strikethrough text
 
+
+
+#### Formatting text example
+
 ```
 This text is **bold** while this is *italic*, but you can have
-**bold and *italic*** text mixed. Instead of asterisks '\*' you can use
-underline '\_' characters. It can be convenient to join
-**bold and _italic_** or *italic with __bold__*. Just one character
+**bold and *italic* ** text mixed.
+
+Instead of asterisk '\*' you can use
+underline '\_' character. It can be convenient to join
+**bold and _italic_** or *italic with __bold__*.
+
+Just one character
 ('\*' or '\_') means italic, while two ('\*\*' or '\_\_') mean bold.
+
 You can use additionally two tildes '\~\~' to ~~strike through~~ some text.
 ```
 
+
+
+#### Formatting text rendering
+
 This text is **bold** while this is *italic*, but you can have
-**bold and *italic*** text mixed. Instead of asterisks '\*' you can use
-underline '\_' characters. It can be convenient to join
-**bold and _italic_** or *italic with __bold__*. Just one character
+**bold and *italic* ** text mixed.
+
+Instead of asterisk '\*' you can use
+underline '\_' character. It can be convenient to join
+**bold and _italic_** or *italic with __bold__*.
+
+Just one character
 ('\*' or '\_') means italic, while two ('\*\*' or '\_\_') mean bold.
+
 You can use additionally two tildes '\~\~' to ~~strike through~~ some text.
 
 
@@ -86,7 +104,7 @@ Tables
 
 
 
-### Table code example
+### Table example
 
 ```
 Table 1. Name of the table
@@ -131,7 +149,7 @@ Pictures
 
 
 
-### Picture code example
+### Picture example
 
 ```
 ![alt_text](link_to/image_eg.png)
@@ -154,7 +172,7 @@ Links
 
 
 
-### Link code example
+### Link example
 
 ```
 [About writing and formatting on
@@ -180,6 +198,11 @@ Lists
 Prefixed with asterisk (standard alows also \- sign) and some spaces. Nested
 lists indented by two spaces.
 
+
+
+
+#### Unordered lists example
+
 ```
 * first element (level 1)
   * level 2 - first
@@ -188,7 +211,11 @@ lists indented by two spaces.
 * third element (level 1)
 ```
 
-Rendered like below:
+
+
+
+
+#### Unordered lists rendering
 
 * first element (level 1)
   * level 2 - first
@@ -200,23 +227,46 @@ Rendered like below:
 
 ### Ordered list
 
+
+
+#### Ordered lists example
+
 ```
 1. first element
+  1. level 2 - first
+  2. level 2 second
 2. second element
+  3. level 2 - first
+    1. level 3 - first
+    2. level 3 second
+  4. level 2 second
 3. third element
 ```
 
-Renderd like below:
+
+
+#### Ordered lists rendering
 
 1. first element
+  1. level 2 - first
+  2. level 2 second
 2. second element
+  3. level 2 - first
+    1. level 3 - first
+    2. level 3 second
+  4. level 2 second
 3. third element
 
 
 
-### Unordered lists
+### Mixed lists
 
 You can mix unordered and ordered list on different nesting levels.
+
+
+
+
+#### Mixed lists example
 
 ```
 * first element (level 1)
@@ -230,7 +280,9 @@ You can mix unordered and ordered list on different nesting levels.
 * third element (level 1)
 ```
 
-Rendered like below:
+
+
+#### Mixed lists rendering
 
 * first element (level 1)
   1. level 2 - first
