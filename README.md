@@ -10,7 +10,7 @@ My test repository used to some tests with markdown
 Rules of formatting Markdown files
 ================================================================================
 
-This rules extends standard rules of Markdown. They extend readability of
+These rules extends standard rules of Markdown. They extend readability of
 markdown file in text mode, and simplify automatic generation of:
 * Table of contents
   (ready: see
@@ -34,20 +34,20 @@ Each paragraph is separated with at least one empty line from other paragraphs.
 ### Bold, italic, and strikethrough text
 
 ```
-This text is **bold** while this is *italic*, but you can have **bold and
-*italic* ** text mixed. Instead of asterisks '*' you can use underline '_'
-characters. It can be convenient to join **bold and _italic_** or *italic
-with __bold__*. Just one character ('*' or '_') means italic, while two
-('**' or '__') mean bold.
-You can use additionally two tildes '~~' to ~~strike through~~ some text.
+This text is **bold** while this is *italic*, but you can have
+**bold and *italic*** text mixed. Instead of asterisks '\*' you can use
+underline '\_' characters. It can be convenient to join
+**bold and _italic_** or *italic with __bold__*. Just one character
+('\*' or '\_') means italic, while two ('\*\*' or '\_\_') mean bold.
+You can use additionally two tildes '\~\~' to ~~strike through~~ some text.
 ```
 
-This text is **bold** while this is *italic*, but you can have **bold and
-*italic* ** text mixed. Instead of asterisks '*' you can use underline '_'
-characters. It can be convenient to join **bold and _italic_** or *italic
-with __bold__*. Just one character ('*' or '_') means italic, while two
-('**' or '__') mean bold.
-You can use additionally two tildes '~~' to ~~strike through~~ some text.
+This text is **bold** while this is *italic*, but you can have
+**bold and *italic*** text mixed. Instead of asterisks '\*' you can use
+underline '\_' characters. It can be convenient to join
+**bold and _italic_** or *italic with __bold__*. Just one character
+('\*' or '\_') means italic, while two ('\*\*' or '\_\_') mean bold.
+You can use additionally two tildes '\~\~' to ~~strike through~~ some text.
 
 
 
