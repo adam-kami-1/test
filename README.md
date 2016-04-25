@@ -39,7 +39,8 @@ Each paragraph is separated with at least one empty line from other paragraphs.
 
 ```
 This text is **bold** while this is *italic*, but you can have
-**bold and *italic* ** text mixed.
+**bold and *italic* ** text mixed. But the last does not work always as
+expected.
 
 Instead of asterisk '\*' you can use
 underline '\_' character. It can be convenient to join
@@ -56,7 +57,8 @@ You can use additionally two tildes '\~\~' to ~~strike through~~ some text.
 #### Formatting text rendering
 
 This text is **bold** while this is *italic*, but you can have
-**bold and *italic* ** text mixed.
+**bold and *italic* ** text mixed. But the last does not work always as
+expected.
 
 Instead of asterisk '\*' you can use
 underline '\_' character. It can be convenient to join

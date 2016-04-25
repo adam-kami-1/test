@@ -326,3 +326,14 @@ Dashes with spaces
 
 
 Test some rulers
+
+
+Test of picture being a link:
+
+```
+[![alt_text](link_to/image_eg.png)](https://en.wikipedia.org/wiki/Moszna,_Opole_Voivodeship)
+```
+
+[![alt_text](link_to/image_eg.png)](https://en.wikipedia.org/wiki/Moszna,_Opole_Voivodeship)
+
+
