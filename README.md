@@ -20,6 +20,37 @@ markdown file in text mode, and simplify automatic generation of:
 
 
 
+Formatting text
+--------------------------------------------------------------------------------
+
+
+
+### Paragraphs
+
+Each paragraph is separated with at least one empty line from other paragraphs.
+
+
+
+### Bold, italic, and strikethrough text
+
+```
+This text is **bold** while this is *italic*, but you can have **bold and
+*italic* ** text mixed. Instead of asterisks '*' you can use underline '_'
+characters. It can be convenient to join **bold and _italic_** or *italic
+with __bold__*. Just one character ('*' or '_') means italic, while two
+('**' or '__') mean bold.
+You can use additionally two tildes '~~' to ~~strike through~~ some text.
+```
+
+This text is **bold** while this is *italic*, but you can have **bold and
+*italic* ** text mixed. Instead of asterisks '*' you can use underline '_'
+characters. It can be convenient to join **bold and _italic_** or *italic
+with __bold__*. Just one character ('*' or '_') means italic, while two
+('**' or '__') mean bold.
+You can use additionally two tildes '~~' to ~~strike through~~ some text.
+
+
+
 Headers
 --------------------------------------------------------------------------------
 
@@ -39,7 +70,7 @@ header with one '\#' character and some spaces.
 Always precede header line with at least 3 empty lines. Standard requires
 only one. Always use line with about 80 hyphen '\-' characters in the next
 line after header line. In standard only 3 are required. Standard allow
-also preceding header with two '\#' characters and some spaces.
+also preceding header with two '\#\#' characters and some spaces.
 
 
 
@@ -105,7 +136,7 @@ Pictures
 ```
 ![alt_text](link_to/image_eg.png)
 
-Figure 1. Name of picture
+Figure 1. Castle in Moszna
 ```
 
 
@@ -114,7 +145,7 @@ Figure 1. Name of picture
 
 ![alt_text](link_to/image_eg.png)
 
-Figure 1. Name of picture
+Figure 1. Castle in Moszna
 
 
 
@@ -126,14 +157,16 @@ Links
 ### Link code example
 
 ```
-[About writing and formatting on GitHub](https://help.github.com/articles/about-writing-and-formatting-on-github/)
+[About writing and formatting on
+GitHub](https://help.github.com/articles/about-writing-and-formatting-on-github/)
 ```
 
 
 
 ### Link rendering
 
-[About writing and formatting on GitHub](https://help.github.com/articles/about-writing-and-formatting-on-github/)
+[About writing and formatting on
+GitHub](https://help.github.com/articles/about-writing-and-formatting-on-github/)
 
 
 
@@ -208,28 +241,3 @@ Rendered like below:
     2. level 3 second
   * level 2 second
 * third element (level 1)
-
-
-
-
-Formatting text
---------------------------------------------------------------------------------
-
-
-
-### Paragraphs
-
-Each paragraph is separated with at least one empty line from other paragraph.
-
-
-
-### Bold and italic text
-
-```
-This text is **bold** while this is *italic*, but you can have **bold and
-*italic*** text mixed.
-```
-
-This text is **bold** while this is *italic*, but you can have **bold and
-*italic*** text mixed.
-
