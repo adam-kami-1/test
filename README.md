@@ -7,10 +7,10 @@ My test repository used to some tests with markdown
 
 
 
-Rules of formatting Markdown files
+Formatting rules for Markdown files
 ================================================================================
 
-These rules extends standard rules of Markdown. They extend readability of
+These rules extend standard rules of Markdown. They extend readability of
 markdown file in text mode, and simplify automatic generation of:
 * Table of contents
   (ready: see
