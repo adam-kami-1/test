@@ -24,8 +24,8 @@ def check_hash_header(line, level):
 def build_link(level, number):
     """Build new link"""
     s = "TOC"
-    for l in number[1:level+1]:
-        s += "_" + str(l)
+    for no in number[1:level+1]:
+        s += "_" + str(no)
     return s
 
 
@@ -45,7 +45,7 @@ def main():
         print("    -l --levels=N    Create TOC for N levels of headers. N in range 1 to 6.")
         print("")
         print("This script reads Markdown INPUT FILE, prepend every header with anchor used")
-        print("in Table of contents. If OUTPUT FILE is missing then conversion is executed")
+        print("in Table of contents. If OUTPUT FILE is missing then conversion is done")
         print("in-place.")
         print("")
 
@@ -90,6 +90,7 @@ def main():
         out_file_name = args[0]
     in_file_name = args[0]
 
+    #            1  2  3  4  5  6
     number = [0, 0, 0, 0, 0, 0, 0, 0]
 
     # Read input file
@@ -102,35 +103,44 @@ def main():
     # Scan all lines of input file
     prev_line = ""
     for current_line in in_lines:
-        prefix = ""
-        level = 0
+        level = 0  # no header in current line
         header = ""
+        current_line_header = False
 
-        # check if previous or last line contains header
+        # check if previous and current line contains header in the form
+        # header line followed by line of dashes or equal signs or
+        # current line contains header prepended with 1-6 hash characters.
         if current_line[0:3] == "===":
-            header = trim(prev_line)
+            header = strip_anchor(trim(prev_line))
             if len(header) > 0:
                 level = 1
         elif current_line[0:3] == "---":
-            header = trim(prev_line)
+            header = strip_anchor(trim(prev_line))
             if len(header) > 0:
                 level = 2
         else:
             for i in range(1, toc_levels+1):
-                header = check_hash_header(current_line, i)
+                header = strip_anchor(check_hash_header(current_line, i))
                 if len(header) > 0:
+                    current_line_header = True
                     level = i
                     break
-        # If line contains header build anchor and replace it with old one
-        if level > 0:
+        # If line contains header build and anchor and replace it with old one
+        if (1 <= level) and (level <= toc_levels):
             number[level] += 1
             number[level + 1] = 0
             link = build_link(level, number)
-            print("  " * (level - 1) + "* [" + strip_anchor(header) + "](#" + link + ")")
-            prev_line = strip_anchor(prev_line)
+            print("    " * (level - 1) + "* [" + header + "](#" + link + ")")
             anchor = '<a id="' + link + '"></a>'
-            prefix = anchor
-        out_lines.append(prefix + prev_line)
+            if current_line_header:
+                current_line = strip_anchor(current_line)
+                line = current_line.partition(header)
+                current_line = line[0] + anchor + line[1] + line[2]
+                pass
+            else:
+                prev_line = strip_anchor(prev_line)
+                prev_line = anchor + prev_line
+        out_lines.append(prev_line)
         prev_line = current_line
     out_lines.append(prev_line)
 
