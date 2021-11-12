@@ -7,33 +7,6 @@ import re
 import getopt
 
 
-def trim(s):
-    """Strip newline from end, and spaces and tabs from beginning and end of string"""
-    s = s.lstrip(" \t")
-    return s.rstrip(" \t\n")
-
-
-def check_hash_header(line, level):
-    """Check if line contains the header marked with 1 to 6 hashes"""
-    if re.match("^" + ("#" * level) + "[ \t]", line):
-        return trim(line[level + 1:])
-    else:
-        return ""
-
-
-def build_link(level, number):
-    """Build new link"""
-    s = "TOC"
-    for no in number[1:level+1]:
-        s += "_" + str(no)
-    return s
-
-
-def strip_anchor(line):
-    """If line contains anchor then remove it"""
-    return re.sub('<a id=".*"></a>', "", line)
-
-
 def main():
     """Main function"""
 
@@ -49,6 +22,29 @@ def main():
         print("in Table of contents. If OUTPUT FILE is missing then conversion is done")
         print("in-place.")
         print("")
+
+    def strip_anchor(line):
+        """If line contains anchor then remove it"""
+        return re.sub('<a id=".*"></a>', "", line)
+
+    def build_link(curr_level):
+        """Build new link"""
+        s = "TOC"
+        for no in header_numbers[1:curr_level+1]:
+            s += "_" + str(no)
+        return s
+
+    def trim(s):
+        """Strip newline from end, and spaces and tabs from beginning and end of string"""
+        s = s.lstrip(" \t")
+        return s.rstrip(" \t\n")
+
+    def check_hash_header(line, curr_level):
+        """Check if line contains the header marked with 1 to 6 hashes"""
+        if re.match("^" + ("#" * curr_level) + "[ \t]", line):
+            return trim(line[curr_level + 1:])
+        else:
+            return ""
 
     ############
     # BEGIN main
@@ -94,8 +90,8 @@ def main():
         out_file_name = args[0]
     in_file_name = args[0]
 
-    #            1  2  3  4  5  6
-    number = [0, 0, 0, 0, 0, 0, 0, 0]
+    #                    1  2  3  4  5  6
+    header_numbers = [0, 0, 0, 0, 0, 0, 0, 0]
 
     # Read input file
     fd = open(in_file_name, "r")
@@ -131,15 +127,15 @@ def main():
                     break
         # If line contains header build and anchor and replace it with old one
         if (1 <= level) and (level <= toc_levels):
-            number[level] += 1
-            number[level + 1] = 0
-            link = build_link(level, number)
+            header_numbers[level] += 1
+            header_numbers[level + 1] = 0
+            link = build_link(level)
             print("    " * (level - 1) + "* [" + header + "](#" + link + ")")
             anchor = '<a id="' + link + '"></a>'
             if current_line_header:
                 current_line = strip_anchor(current_line)
-                line = current_line.partition(header)
-                current_line = line[0] + anchor + line[1] + line[2]
+                current_line = current_line.partition(header)
+                current_line = current_line[0] + anchor + current_line[1] + current_line[2]
                 pass
             else:
                 prev_line = strip_anchor(prev_line)
