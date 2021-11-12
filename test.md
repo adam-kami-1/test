@@ -16,7 +16,7 @@ Test of TOC
 **Table of contens**
 
 <!-- :TOC: -->
-<!-- :TOC: -->
+<!-- :COT: -->
 
 Header level 1 Aaaaaaaaaaaaaaaaaaaaaa
 ================================================================================

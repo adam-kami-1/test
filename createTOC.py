@@ -43,6 +43,7 @@ def main():
         print("    " + os.path.basename(sys.argv[0]) + " [OPTION] <INPUT FILE> [<OUTPUT FILE>]")
         print("")
         print("    -l --levels=N    Create TOC for N levels of headers. N in range 1 to 6.")
+        print("    -c --clean       Clean anchors from all headers.")
         print("")
         print("This script reads Markdown INPUT FILE, prepend every header with anchor used")
         print("in Table of contents. If OUTPUT FILE is missing then conversion is done")
@@ -52,12 +53,13 @@ def main():
     ############
     # BEGIN main
     try:
-        opts, args = getopt.getopt(sys.argv[1:], "l:?", ["help", "levels="])
+        opts, args = getopt.getopt(sys.argv[1:], "cl:?", ["help", "levels=", "clean"])
     except getopt.GetoptError as err:
         print(err)
         usage()
         sys.exit(2)
 
+    clean_anchors = False
     toc_levels = 3
     for o, v in opts:
         if o in ("-l", "--levels"):
@@ -69,6 +71,8 @@ def main():
                 print("Invalid value for toc_levels:", v)
                 usage()
                 sys.exit(2)
+        elif o in ("-c", "--clean"):
+            clean_anchors = True
         elif o in ("-?", "--help"):
             usage()
             sys.exit()
@@ -119,7 +123,7 @@ def main():
             if len(header) > 0:
                 level = 2
         else:
-            for i in range(1, toc_levels+1):
+            for i in range(1, 6+1):
                 header = strip_anchor(check_hash_header(current_line, i))
                 if len(header) > 0:
                     current_line_header = True
@@ -140,6 +144,11 @@ def main():
             else:
                 prev_line = strip_anchor(prev_line)
                 prev_line = anchor + prev_line
+        elif clean_anchors and (level > toc_levels):
+            if current_line_header:
+                current_line = strip_anchor(current_line)
+            else:
+                prev_line = strip_anchor(prev_line)
         out_lines.append(prev_line)
         prev_line = current_line
     out_lines.append(prev_line)
