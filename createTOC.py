@@ -55,9 +55,7 @@ def main() :
         usage()
         sys.exit(2)
 
-    in_file = ""
     toc_levels = 3
-    out_file = ""
     for o, v in opts:
         if o in ("-l", "--levels"):
             try:
@@ -84,32 +82,23 @@ def main() :
         usage()
         sys.exit(2)
     if len(args) == 2:
-        out_file = args[1]
+        out_file_name = args[1]
     else:
-        out_file = args[0]
-    in_file = args[0]
+        out_file_name = args[0]
+    in_file_name = args[0]
 
-    # This is temporary solution, for tests. For now the rest of coe is not yet ready for new parameters!!!
-    print("infile :", in_file)
-    print("outfile:", out_file)
-    print("level  :", toc_levels)
-    return
-
-
-    out_file = '#' + in_file + '#'
     number = [0, 0, 0, 0, 0, 0, 0, 0]
 
     # Read input file
-    fd = open(in_file, "r")
-    lines = fd.readlines()
+    fd = open(in_file_name, "r")
+    in_lines = fd.readlines()
     fd.close()
 
-    # Open temporary output file
-    fd = open(out_file, "w")
+    out_lines = []
 
     # Scan all lines of input file
     prev_line = ""
-    for last_line in lines :
+    for last_line in in_lines :
         prefix = ""
         level = 0
 
@@ -135,16 +124,16 @@ def main() :
             prev_line = strip_anchor(prev_line)
             anchor = '<a id="' + link + '"></a>'
             prefix = anchor
-
-        # print (un)modified line to temporary output file
-        fd.write(prefix + prev_line)
+        out_lines.append(prefix + prev_line)
         prev_line = last_line
-    fd.write(prev_line)
-    fd.close()
+    out_lines.append(prev_line)
 
-    # Swap temporay output and input file
-    os.rename(in_file, in_file + "~")
-    os.rename(out_file, in_file)
+    # Store result to output file
+    fd = open(out_file_name, "w")
+    for out_line in out_lines :
+        # print (un)modified line to output file
+        fd.write(out_line)
+    fd.close()
     # END main
     ##########
 
