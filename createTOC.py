@@ -1,37 +1,40 @@
 #!/usr/bin/python3
 
 
-import sys, os, re, getopt
+import sys
+import os
+import re
+import getopt
 
 
-def trim(s) :
+def trim(s):
     """Strip newline from end, and spaces and tabs from beginning and end of string"""
     s = s.lstrip(" \t")
     return s.rstrip(" \t\n")
 
 
-def check_hash_header(line, level) :
+def check_hash_header(line, level):
     """Check if line contains the header marked with 1 to 6 hashes"""
-    if re.match("^" + ("#" * level) + "[ \t]", line) :
+    if re.match("^" + ("#" * level) + "[ \t]", line):
         return trim(line[level + 1:])
-    else :
+    else:
         return ""
 
 
-def build_link(level, number) :
+def build_link(level, number):
     """Build new link"""
     s = "TOC"
-    for l in number[1:level+1] :
+    for l in number[1:level+1]:
         s += "_" + str(l)
     return s
 
 
-def strip_anchor(line) :
+def strip_anchor(line):
     """If line contains anchor then remove it"""
     return re.sub('<a id=".*"></a>', "", line)
 
 
-def main() :
+def main():
     """Main function"""
 
     def usage():
@@ -98,25 +101,28 @@ def main() :
 
     # Scan all lines of input file
     prev_line = ""
-    for last_line in in_lines :
+    for current_line in in_lines:
         prefix = ""
         level = 0
+        header = ""
 
         # check if previous or last line contains header
-        if last_line[0:3] == "===" :
-            level = 1
+        if current_line[0:3] == "===":
             header = trim(prev_line)
-        elif last_line[0:3] == "---" :
-            level = 2
+            if len(header) > 0:
+                level = 1
+        elif current_line[0:3] == "---":
             header = trim(prev_line)
-        else :
-            for i in range(1, toc_levels+1) :
-                header = check_hash_header(last_line, i)
-                if len(header) > 0 :
+            if len(header) > 0:
+                level = 2
+        else:
+            for i in range(1, toc_levels+1):
+                header = check_hash_header(current_line, i)
+                if len(header) > 0:
                     level = i
                     break
         # If line contains header build anchor and replace it with old one
-        if level > 0 :
+        if level > 0:
             number[level] += 1
             number[level + 1] = 0
             link = build_link(level, number)
@@ -125,17 +131,18 @@ def main() :
             anchor = '<a id="' + link + '"></a>'
             prefix = anchor
         out_lines.append(prefix + prev_line)
-        prev_line = last_line
+        prev_line = current_line
     out_lines.append(prev_line)
 
     # Store result to output file
     fd = open(out_file_name, "w")
-    for out_line in out_lines :
+    for out_line in out_lines:
         # print (un)modified line to output file
         fd.write(out_line)
     fd.close()
     # END main
     ##########
+
 
 ################################################################################
 if __name__ == '__main__':
