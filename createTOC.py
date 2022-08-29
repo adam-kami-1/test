@@ -1,7 +1,9 @@
 #!/usr/bin/python3
-"""createTOC.py
+"""
+createTOC.py
 
-Create table of contents for markdown file. Use option -? or --help to get more information.
+Create table of contents for markdown file. Use option -? or --help to get
+more information.
 """
 
 
@@ -11,40 +13,39 @@ __version__ = "1.0"
 
 
 import sys
-import os
+# import os
 import re
 import getopt
 
 
+USAGE_TXT = """
+Usage:
+    createTOC.py [OPTION] <INPUT FILE> [<OUTPUT FILE>]
+
+    -l --levels=N   Create table of contents for N levels of headers.
+                    N in range 0 to 6. Default value: 3.
+                    0 means: don't create table of contents. When option
+                    --clean is used, removes table of contents and all anchors.
+    -c --clean      Clean anchors from all headers higher than N.
+                    If N == 0 clean also table of contents
+
+This script reads Markdown INPUT FILE, prepend every header with anchor used
+in table of contents. If OUTPUT FILE is missing then conversion is done
+in-place.
+When INPUT FILE contains two lines, one containing marker :TOC: and the other
+containing marker :COT: then all lines in INPUT FILE between lines containing
+those markers are treated as old version of table of contents to be removed
+or replaced by new table of contents created by this script.
+It is convenient to hide those markers inside HTML comment:
+<!-- :TOC: -->
+<!-- :COT: -->
+If INPUT FILE does not contain :TOC: and :COT: markers, then newly created
+table of contents is printed out into standard output.
+"""
+
+
 def main() -> None:
     """Main function"""
-
-    def usage() -> None:
-        """Display script usage instruction"""
-        print("")
-        print("Usage:")
-        print("    " + os.path.basename(sys.argv[0]) + " [OPTION] <INPUT FILE> [<OUTPUT FILE>]")
-        print("")
-        print("    -l --levels=N    Create table of contents for N levels of headers.")
-        print("                     N in range 0 to 6. Default value: 3.")
-        print("                     0 means: don't create table of contents. When option")
-        print("                     --clean is used, removes table of contents and all anchors.")
-        print("    -c --clean       Clean anchors from all headers higher than N.")
-        print("                     If N == 0 clean also table of contents")
-        print("")
-        print("This script reads Markdown INPUT FILE, prepend every header with anchor used")
-        print("in table of contents. If OUTPUT FILE is missing then conversion is done")
-        print("in-place.")
-        print("When INPUT FILE contains two lines, one containing marker :TOC: and the other")
-        print("containing marker :COT: then all lines in INPUT FILE between lines containing")
-        print("those markers are treated as old version of table of contents to be removed")
-        print("or replaced by new table of contents created by this script.")
-        print("It is convenient to hide those markers inside HTML comment:")
-        print("<!-- :TOC: -->")
-        print("<!-- :COT: -->")
-        print("If INPUT FILE does not contain :TOC: and :COT: markers, then newly created")
-        print("table of contents is printed out into standard output.")
-        print("")
 
     def strip_anchor(line: str) -> str:
         """If line contains anchor then remove it"""
@@ -57,55 +58,52 @@ def main() -> None:
             s += "_" + str(no)
         return s
 
-    def trim(s: str) -> str:
-        """Strip newline from end, and spaces and tabs from beginning and end of string"""
-        s = s.lstrip(" \t")
-        return s.rstrip(" \t\n")
-
     def check_hash_header(line: str, curr_level: int) -> str:
         """Check if line contains the header marked with 1 to 6 hashes"""
         if re.match("^" + ("#" * curr_level) + "[ \t]", line):
-            return trim(line[curr_level + 1:])
+            return line[curr_level + 1:].strip()
         else:
             return ""
 
     ############
     # BEGIN main
     try:
-        opts, args = getopt.getopt(sys.argv[1:], "c?l:", ["clean", "help", "levels="])
+        opts, args = getopt.getopt(sys.argv[1:],
+                                   "c?l:",
+                                   ["clean", "help", "levels="])
     except getopt.GetoptError as err:
         print(err)
-        usage()
+        print(USAGE_TXT)
         sys.exit(2)
 
     clean_anchors = False
     toc_levels = 3
-    for o, v in opts:
-        if o in ("-l", "--levels"):
+    for option, value in opts:
+        if option in ("-l", "--levels"):
             try:
-                toc_levels = int(v)
+                toc_levels = int(value)
                 if (toc_levels < 0) or (toc_levels > 6):
                     raise ValueError
             except ValueError:
-                print("Invalid value for --levels:", v)
-                usage()
+                print("Invalid value for --levels:", value)
+                print(USAGE_TXT)
                 sys.exit(2)
-        elif o in ("-c", "--clean"):
+        elif option in ("-c", "--clean"):
             clean_anchors = True
-        elif o in ("-?", "--help"):
-            usage()
+        elif option in ("-?", "--help"):
+            print(USAGE_TXT)
             sys.exit()
         else:
-            print("Unknown option:", o)
-            usage()
+            print("Unknown option:", option)
+            print(USAGE_TXT)
             sys.exit(2)
     if len(args) > 2:
         print("parameters", str(tuple(args[2:])), "ignored")
-        usage()
+        print(USAGE_TXT)
         sys.exit(2)
     if len(args) < 1:
         print("infile parameter is mandatory")
-        usage()
+        print(USAGE_TXT)
         sys.exit(2)
     if len(args) == 2:
         out_file_name = args[1]
@@ -138,11 +136,11 @@ def main() -> None:
         # header line followed by line of dashes or equal signs or
         # current line contains header prepended with 1-6 hash characters.
         if current_line[0:3] == "===":
-            header = strip_anchor(trim(prev_line))
+            header = strip_anchor(prev_line.strip())
             if len(header) > 0:
                 level = 1
         elif current_line[0:3] == "---":
-            header = strip_anchor(trim(prev_line))
+            header = strip_anchor(prev_line.strip())
             if len(header) > 0:
                 level = 2
         else:
@@ -208,6 +206,6 @@ def main() -> None:
     ##########
 
 
-################################################################################
+###############################################################################
 if __name__ == '__main__':
     main()
