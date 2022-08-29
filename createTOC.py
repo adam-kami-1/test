@@ -24,23 +24,25 @@ Usage:
 
     -l --levels=N   Create table of contents for N levels of headers.
                     N in range 0 to 6. Default value: 3.
-                    0 means: don't create table of contents. When option
-                    --clean is used, removes table of contents and all anchors.
+                    0 means: don't create table of contents. When
+                    option --clean is used, removes table of contents
+                    and all anchors.
     -c --clean      Clean anchors from all headers higher than N.
                     If N == 0 clean also table of contents
 
-This script reads Markdown INPUT FILE, prepend every header with anchor used
-in table of contents. If OUTPUT FILE is missing then conversion is done
-in-place.
-When INPUT FILE contains two lines, one containing marker :TOC: and the other
-containing marker :COT: then all lines in INPUT FILE between lines containing
-those markers are treated as old version of table of contents to be removed
-or replaced by new table of contents created by this script.
+This script reads Markdown INPUT FILE, prepend every header with anchor
+used in table of contents. If OUTPUT FILE is missing then conversion is
+done in-place.
+When INPUT FILE contains two lines, one containing marker :TOC: and the
+other containing marker :COT: then all lines in INPUT FILE between
+lines containing those markers are treated as old version of table of
+contents to be removed or replaced by new table of contents created by
+this script.
 It is convenient to hide those markers inside HTML comment:
 <!-- :TOC: -->
 <!-- :COT: -->
-If INPUT FILE does not contain :TOC: and :COT: markers, then newly created
-table of contents is printed out into standard output.
+If INPUT FILE does not contain :TOC: and :COT: markers, then newly
+created table of contents is printed out into standard output.
 """
 
 
@@ -48,11 +50,11 @@ def main() -> None:
     """Main function"""
 
     def strip_anchor(line: str) -> str:
-        """If line contains anchor then remove it"""
-        return re.sub('<a id=".*"></a>', "", line)
+        """If line contains TOC anchor then return line without anchor"""
+        return re.sub('<a id="TOC_.*"></a>', "", line)
 
     def build_link(curr_level: int) -> str:
-        """Build new link"""
+        """Build new link in the form like: TOC_1_2_3"""
         s = "TOC"
         for no in header_numbers[1:curr_level+1]:
             s += "_" + str(no)
@@ -118,9 +120,8 @@ def main() -> None:
     toc = []
 
     # Read input file
-    fd = open(in_file_name, "r")
-    in_lines = fd.readlines()
-    fd.close()
+    with open(in_file_name, "r") as fd:
+        in_lines = fd.readlines()
 
     out_lines = []
 
@@ -185,23 +186,23 @@ def main() -> None:
     out_lines.append(prev_line)
 
     # Store result to output file
-    fd = open(out_file_name, "w")
-    if (0 <= toc_start_line) and (toc_start_line < toc_end_line) and \
-       ((toc_levels > 0) or clean_anchors):
-        for out_line in out_lines[0: toc_start_line + 1]:
-            fd.write(out_line)
-        # Insert new table of contents into OUTPUT FILE
-        for out_line in toc:
-            fd.write(out_line + "\n")
-        for out_line in out_lines[toc_end_line:]:
-            fd.write(out_line)
-    else:
-        for out_line in out_lines:
-            fd.write(out_line)
-        # Print out new table of contents
-        for out_line in toc:
-            print(out_line)
-    fd.close()
+    with open(out_file_name, "w") as fd:
+        if (0 <= toc_start_line) and \
+           (toc_start_line < toc_end_line) and \
+           ((toc_levels > 0) or clean_anchors):
+            for out_line in out_lines[0: toc_start_line + 1]:
+                fd.write(out_line)
+            # Insert new table of contents into OUTPUT FILE
+            for out_line in toc:
+                fd.write(out_line + "\n")
+            for out_line in out_lines[toc_end_line:]:
+                fd.write(out_line)
+        else:
+            for out_line in out_lines:
+                fd.write(out_line)
+            # Print out new table of contents
+            for out_line in toc:
+                print(out_line)
     # END main
     ##########
 
