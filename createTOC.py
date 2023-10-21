@@ -137,10 +137,12 @@ def main() -> None:
         # header line followed by line of dashes or equal signs or
         # current line contains header prepended with 1-6 hash characters.
         if current_line[0:3] == "===":
+            # Header level 1 in previous line
             header = strip_anchor(prev_line.strip())
             if len(header) > 0:
                 level = 1
         elif current_line[0:3] == "---":
+            # Header level 2 in previous line
             header = strip_anchor(prev_line.strip())
             if len(header) > 0:
                 level = 2
